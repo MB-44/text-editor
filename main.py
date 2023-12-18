@@ -26,14 +26,14 @@ while True:
         break
 
     if event == "Open":
-        filePath = ps.popup_get_file('open',no_window=True)
+        filePath = ps.popup_get_file('open',no_window=False)
         if filePath:
             file = Path(filePath)
             window['-textBox-'].update(file.read_text())
             window['-docName-'].update(filePath.split('/')[-1])
 
     if event == "Save":
-        filePath = ps.popup_get_file("Save as",no_window=True,save_as=True)
+        filePath = ps.popup_get_file("Save as",no_window=False,save_as=True)
         file = Path(filePath)
         file.write_text(values['-textBox-'])
         window['-docName-'].update(filePath.split('/')[-1])
